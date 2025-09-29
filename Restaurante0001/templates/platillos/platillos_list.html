@@ -1,0 +1,33 @@
+{% extends 'main/base_user.html' %}
+
+{% block content %}
+<h1>Lista de Platillos</h1>
+
+<a class="btn btn-primary" href="{% url 'platillos:platillos_create' %}">Agregar platillo</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for platillo in platillos %}
+        <tr>
+            <td>
+                <a class="btn btn-primary" href="">Editar</a>
+                <a class="btn btn-danger" href="">Eliminar</a>
+            </td>
+            <td>{{platillo.nombre}}</td>
+            <td>{{platillo.descripcion}}</td>
+            <td>{{platillo.precio}}</td>
+            <td>{{platillo.categoria.nombre}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

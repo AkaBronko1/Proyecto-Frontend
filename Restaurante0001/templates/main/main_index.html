@@ -1,0 +1,224 @@
+{% extends 'main/base_user.html' %}
+{% load static %}
+
+{% block title %}Inicio - Restaurante{% endblock %}
+{% block page_title %}🏠 Inicio{% endblock %}
+
+{% block extra_css %}
+<style>
+    .welcome-hero {
+        background: linear-gradient(135deg, #212529 0%, #495057 100%);
+        border-radius: 15px;
+        color: white;
+        padding: 3rem 2rem;
+    }
+    
+    .feature-card {
+        transition: transform 0.2s ease-in-out;
+        border: 1px solid rgba(255, 193, 7, 0.2);
+        height: 100%;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(255, 193, 7, 0.1);
+        border-color: #ffc107;
+    }
+    
+    .quick-stats {
+        background: linear-gradient(135deg, #ffc107 0%, #ff8f00 100%);
+        color: white;
+        border-radius: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Welcome Section -->
+<div class="welcome-hero text-center mb-5">
+    <div class="row align-items-center">
+        <div class="col-md-8 mx-auto">
+            <h1 class="display-4 fw-bold mb-3">
+                ¡Hola, {{ user.first_name|default:user.username }}! 👋
+            </h1>
+            <p class="lead mb-4">
+                Bienvenido a tu panel de gestión del restaurante. Desde aquí puedes administrar 
+                tu menú, categorías y ver el rendimiento de tu negocio.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'main:dashboard' %}" class="btn btn-warning btn-lg">
+                    <i class="bi bi-speedometer2 me-2"></i>Ver Dashboard
+                </a>
+                <a href="{% url 'platillos:platillo_create' %}" class="btn btn-outline-light btn-lg">
+                    <i class="bi bi-plus-circle me-2"></i>Nuevo Platillo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="row mb-5">
+    <div class="col-md-3 mb-3">
+        <div class="quick-stats p-3 text-center">
+            <i class="bi bi-grid-3x3-gap fs-1 mb-2"></i>
+            <h3>{{ categorias_count|default:"0" }}</h3>
+            <p class="mb-0">Categorías</p>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="quick-stats p-3 text-center">
+            <i class="bi bi-cup-hot fs-1 mb-2"></i>
+            <h3>{{ platillos_count|default:"0" }}</h3>
+            <p class="mb-0">Platillos</p>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="quick-stats p-3 text-center">
+            <i class="bi bi-star fs-1 mb-2"></i>
+            <h3>{{ promedio_rating|default:"0.0" }}</h3>
+            <p class="mb-0">Rating Promedio</p>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="quick-stats p-3 text-center">
+            <i class="bi bi-eye fs-1 mb-2"></i>
+            <h3>{{ total_vistas|default:"0" }}</h3>
+            <p class="mb-0">Vistas Totales</p>
+        </div>
+    </div>
+</div>
+
+<!-- Main Features -->
+<div class="row">
+    <div class="col-12 mb-4">
+        <h2 class="h3 text-center mb-4">¿Qué quieres hacer hoy?</h2>
+    </div>
+    
+    <!-- Gestionar Menú -->
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="feature-card p-4 bg-white rounded text-center">
+            <div class="bg-warning bg-opacity-10 p-4 rounded-circle d-inline-flex mb-3">
+                <i class="bi bi-journal-bookmark fs-1 text-warning"></i>
+            </div>
+            <h4 class="mb-3">Gestionar Menú</h4>
+            <p class="text-muted mb-4">
+                Administra tu menú completo, categorías y platillos. 
+                Mantén tu oferta siempre actualizada.
+            </p>
+            <div class="d-flex gap-2 justify-content-center">
+                <a href="{% url 'platillos:categoria_list' %}" class="btn btn-outline-warning btn-sm">
+                    <i class="bi bi-grid me-1"></i>Categorías
+                </a>
+                <a href="{% url 'platillos:platillo_list' %}" class="btn btn-warning btn-sm">
+                    <i class="bi bi-cup-hot me-1"></i>Platillos
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Análisis y Reportes -->
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="feature-card p-4 bg-white rounded text-center">
+            <div class="bg-warning bg-opacity-10 p-4 rounded-circle d-inline-flex mb-3">
+                <i class="bi bi-graph-up fs-1 text-warning"></i>
+            </div>
+            <h4 class="mb-3">Dashboard Completo</h4>
+            <p class="text-muted mb-4">
+                Ve estadísticas detalladas, análisis de rendimiento 
+                y métricas importantes de tu restaurante.
+            </p>
+            <a href="{% url 'main:dashboard' %}" class="btn btn-warning">
+                <i class="bi bi-speedometer2 me-2"></i>Ver Dashboard
+            </a>
+        </div>
+    </div>
+    
+    <!-- Configuración -->
+    <div class="col-lg-4 col-md-6 mb-4">
+        <div class="feature-card p-4 bg-white rounded text-center">
+            <div class="bg-warning bg-opacity-10 p-4 rounded-circle d-inline-flex mb-3">
+                <i class="bi bi-gear fs-1 text-warning"></i>
+            </div>
+            <h4 class="mb-3">Configuración</h4>
+            <p class="text-muted mb-4">
+                Accede al panel de administración y configura 
+                aspectos avanzados de tu sistema.
+            </p>
+            <a href="/admin/" class="btn btn-outline-warning" target="_blank">
+                <i class="bi bi-shield-check me-2"></i>Panel Admin
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity -->
+{% if recent_platillos %}
+<div class="row mt-5">
+    <div class="col-12">
+        <h3 class="h4 mb-4">
+            <i class="bi bi-clock-history text-warning me-2"></i>
+            Actividad Reciente
+        </h3>
+        <div class="row">
+            {% for platillo in recent_platillos %}
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-warning bg-opacity-10 p-2 rounded me-3">
+                                <i class="bi bi-cup-hot text-warning"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">{{ platillo.nombre }}</h6>
+                                <small class="text-muted">Platillo agregado</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Quick Tips -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="alert alert-info border-0" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+            <h5 class="alert-heading">
+                <i class="bi bi-lightbulb text-primary me-2"></i>
+                Consejos Rápidos
+            </h5>
+            <ul class="mb-0">
+                <li>Mantén tus platillos actualizados con precios y descripciones atractivas</li>
+                <li>Usa imágenes de alta calidad para hacer tu menú más apetitoso</li>
+                <li>Revisa regularmente las estadísticas en tu dashboard</li>
+                <li>Organiza tus platillos en categorías claras y fáciles de navegar</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Efectos de animación para las tarjetas
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.feature-card');
+        
+        // Efecto de entrada secuencial
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 200 * (index + 1));
+        });
+    });
+</script>
+{% endblock %}

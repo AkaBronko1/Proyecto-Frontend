@@ -1,0 +1,27 @@
+﻿{% extends 'main/base_user.html' %}
+
+{% block content %}
+<h1>Lista de Categorías</h1>
+
+<a class="btn btn-primary" href="{% url 'platillos:categoria_create' %}">Agregar categoría</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td>
+                <a class="btn btn-primary" href="{% url 'platillos:categoria_edit' categoria.pk %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'platillos:categoria_delete' categoria.pk %}">Eliminar</a>
+            </td>
+            <td>{{categoria.nombre}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,288 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Iniciar Sesión - Pizza Moderna{% endblock %}
+
+{% block nav_login %}active{% endblock %}
+
+{% block hero %}
+<!-- Hero section personalizada para login -->
+<section class="hero-section bg-dark text-white position-relative overflow-hidden py-5">
+  <div class="hero-bg"></div>
+  <div class="container position-relative">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center" data-aos="fade-down">
+        <i class="bi bi-person-circle display-1 text-warning mb-3"></i>
+        <h1 class="display-4 fw-bold mb-3">Bienvenido de vuelta</h1>
+        <p class="lead text-light">Accede a tu cuenta para realizar pedidos y gestionar tus reservas</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      
+      <!-- Card de Login -->
+      <div class="card shadow-lg border-0" data-aos="fade-up">
+        <div class="card-header bg-warning text-dark text-center py-4">
+          <h3 class="mb-0 fw-bold">
+            <i class="bi bi-pizza me-2"></i>
+            Iniciar Sesión
+          </h3>
+        </div>
+        
+        <div class="card-body p-5">
+          <!-- Mensajes de error -->
+          {% if form.errors %}
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <i class="bi bi-exclamation-triangle me-2"></i>
+              <div>
+                <strong>Error:</strong> Por favor corrige los errores a continuación.
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Mensajes del sistema -->
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} d-flex align-items-center" role="alert">
+                <i class="bi bi-info-circle me-2"></i>
+                <div>{{ message }}</div>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          <!-- Formulario de Login -->
+          <form method="post" novalidate>
+            {% csrf_token %}
+            
+            <!-- Campo Email/Usuario -->
+            <div class="mb-4">
+              <label for="id_username" class="form-label fw-semibold">
+                <i class="bi bi-person me-1"></i>Email o Usuario
+              </label>
+              <input 
+                type="text" 
+                class="form-control form-control-lg {% if form.username.errors %}is-invalid{% endif %}" 
+                id="id_username" 
+                name="username" 
+                value="{{ form.username.value|default:'' }}"
+                placeholder="tu@email.com"
+                required
+                autocomplete="username"
+              >
+              {% if form.username.errors %}
+                <div class="invalid-feedback">
+                  {% for error in form.username.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Campo Contraseña -->
+            <div class="mb-4">
+              <label for="id_password" class="form-label fw-semibold">
+                <i class="bi bi-lock me-1"></i>Contraseña
+              </label>
+              <div class="input-group">
+                <input 
+                  type="password" 
+                  class="form-control form-control-lg {% if form.password.errors %}is-invalid{% endif %}" 
+                  id="id_password" 
+                  name="password"
+                  placeholder="Tu contraseña"
+                  required
+                  autocomplete="current-password"
+                >
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i class="bi bi-eye" id="toggleIcon"></i>
+                </button>
+                {% if form.password.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                      {{ error }}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Recordarme -->
+            <div class="mb-4">
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  name="remember_me" 
+                  id="remember_me"
+                >
+                <label class="form-check-label" for="remember_me">
+                  Recordarme en este dispositivo
+                </label>
+              </div>
+            </div>
+
+            <!-- Botón de Login -->
+            <div class="d-grid mb-4">
+              <button type="submit" class="btn btn-warning btn-lg text-dark fw-bold py-3">
+                <i class="bi bi-box-arrow-in-right me-2"></i>
+                Iniciar Sesión
+              </button>
+            </div>
+
+            <!-- Enlace recuperar contraseña -->
+            <div class="text-center mb-3">
+              <a href="#" class="text-decoration-none">
+                <i class="bi bi-question-circle me-1"></i>
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- Enlaces adicionales -->
+      <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card border-0 bg-light">
+          <div class="card-body py-4">
+            <p class="mb-3 text-muted">¿Aún no tienes cuenta?</p>
+            <a href="#" class="btn btn-outline-warning btn-lg">
+              <i class="bi bi-person-plus me-2"></i>
+              Crear Cuenta Nueva
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Social (opcional) -->
+      <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="300">
+        <p class="text-muted mb-3">O inicia sesión con:</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="btn btn-outline-primary btn-lg">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="btn btn-outline-danger btn-lg">
+            <i class="bi bi-google"></i>
+          </a>
+          <a href="#" class="btn btn-outline-info btn-lg">
+            <i class="bi bi-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Script para mostrar/ocultar contraseña -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('id_password');
+    const toggleIcon = document.getElementById('toggleIcon');
+
+    if (togglePassword) {
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            // Cambiar icono
+            if (type === 'password') {
+                toggleIcon.className = 'bi bi-eye';
+            } else {
+                toggleIcon.className = 'bi bi-eye-slash';
+            }
+        });
+    }
+
+    // Validación en tiempo real
+    const form = document.querySelector('form');
+    const inputs = form.querySelectorAll('input[required]');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    });
+
+    // Envío del formulario con validación
+    form.addEventListener('submit', function(e) {
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+            // Mostrar mensaje de error si RestauranteApp está disponible
+            if (typeof RestauranteApp !== 'undefined') {
+                RestauranteApp.showToast('Por favor completa todos los campos requeridos', 'danger');
+            }
+        }
+    });
+});
+</script>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.login-card {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.form-control-lg {
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.15);
+    transform: translateY(-2px);
+}
+
+.input-group .btn {
+    border-radius: 0 12px 12px 0;
+    border: 2px solid #e9ecef;
+    border-left: none;
+}
+
+.card-header {
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.btn-outline-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.social-login .btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+</style>
+{% endblock %}

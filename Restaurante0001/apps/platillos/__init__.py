@@ -1,0 +1,1 @@
+# Archivo para inicializar la app platillos
