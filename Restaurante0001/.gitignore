@@ -29,9 +29,6 @@ ENV/
 ehthumbs.db
 Thumbs.db
 
-# Node modules (if any)
-node_modules/
-
 # Media files (user uploads)
 media/
 
@@ -39,15 +36,10 @@ media/
 staticfiles/
 static_root/
 
-# Cache
-.cache/
+# Documentation files (academic project)
+CODIGO_FUENTE_LOGIN.md
+DOCUMENTACION_SISTEMA_LOGIN.md
+GUIA_CAPTURAS_PANTALLA.md
 
-# Local configuration
-.env
-.env.local
-.env.production
-
-# Python
-*.egg-info/
-dist/
-build/
+# Temporary files
+main_urls.py
