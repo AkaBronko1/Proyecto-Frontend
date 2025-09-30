@@ -46,10 +46,10 @@
                 tu menú, categorías y ver el rendimiento de tu negocio.
             </p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="{% url 'main:dashboard' %}" class="btn btn-warning btn-lg">
+                <a href="{% url 'index_user' %}" class="btn btn-warning btn-lg">
                     <i class="bi bi-speedometer2 me-2"></i>Ver Dashboard
                 </a>
-                <a href="{% url 'platillos:platillo_create' %}" class="btn btn-outline-light btn-lg">
+                <a href="{% url 'platillos:platillos_create' %}" class="btn btn-outline-light btn-lg">
                     <i class="bi bi-plus-circle me-2"></i>Nuevo Platillo
                 </a>
             </div>
@@ -110,7 +110,7 @@
                 <a href="{% url 'platillos:categoria_list' %}" class="btn btn-outline-warning btn-sm">
                     <i class="bi bi-grid me-1"></i>Categorías
                 </a>
-                <a href="{% url 'platillos:platillo_list' %}" class="btn btn-warning btn-sm">
+                <a href="{% url 'platillos:platillos_list' %}" class="btn btn-warning btn-sm">
                     <i class="bi bi-cup-hot me-1"></i>Platillos
                 </a>
             </div>
@@ -128,7 +128,7 @@
                 Ve estadísticas detalladas, análisis de rendimiento 
                 y métricas importantes de tu restaurante.
             </p>
-            <a href="{% url 'main:dashboard' %}" class="btn btn-warning">
+            <a href="{% url 'index_user' %}" class="btn btn-warning">
                 <i class="bi bi-speedometer2 me-2"></i>Ver Dashboard
             </a>
         </div>

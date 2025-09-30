@@ -120,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / "static"
 ]
 
 # Default primary key field type
@@ -128,9 +128,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL ='accounts.AppUser'
-
-# URLs de redirección para autenticación
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/index/'
-LOGOUT_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'accounts.AppUser'
