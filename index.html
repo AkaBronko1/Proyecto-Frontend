@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro | Life-SOS</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -18,15 +19,12 @@
 
         <label for="nombre_usuario">Nombre completo:</label>
         <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Ingrese su nombre" required>
-        <br><br>
 
         <label for="correo">Correo electrónico:</label>
         <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
-        <br><br>
 
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" minlength="6" required>
-        <br><br>
 
         <hr>
 
@@ -34,7 +32,6 @@
 
         <label for="fecha_nacimiento">Fecha de nacimiento:</label>
         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-        <br><br>
 
         <label for="tipo_sangre">Tipo de Sangre:</label>
         <select id="tipo_sangre" name="tipo_sangre" required>
@@ -48,7 +45,6 @@
             <option value="AB+">AB Positivo</option>
             <option value="AB-">AB Negativo</option>
         </select>
-        <br><br>
 
         <label for="alergias">¿Tienes alergias a medicamentos?</label>
         <select id="alergias" name="alergias" required>
@@ -56,7 +52,6 @@
             <option value="No">No</option>
             <option value="Si">Sí</option>
         </select>
-        <br><br>
 
         <label for="seguro_medico">¿Cuentas con Seguro Médico?</label>
         <select id="seguro_medico" name="seguro_medico" required>
@@ -71,17 +66,14 @@
 
         <label for="nombre_contacto">Nombre del familiar:</label>
         <input type="text" id="nombre_contacto" name="nombre_contacto" placeholder="Nombre del familiar" required>
-        <br><br>
 
         <label for="telefono_contacto">Teléfono de emergencia:</label>
         <input type="tel" id="telefono_contacto" name="telefono_contacto" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-        <br><br>
 
         <label for="terminos">
             <input type="checkbox" id="terminos" name="terminos" required>
             Acepto que mis datos médicos sean usados en caso de accidente
         </label>
-        <br><br>
 
         <div>
             <button type="submit">Registrarme</button>
