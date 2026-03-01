@@ -3,21 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión | Life-SOS</title>
+    <title>Iniciar Sesi&#243;n | Life-SOS</title>
+    <!-- Sesion 1: Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos propios -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Iniciar Sesión</h1>
-    <form action="#" method="post">
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
-        <br><br>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
-        <br><br>
-        <button type="submit">Entrar</button>
-        <button type="reset">Limpiar</button>
-    </form>
-    <p>¿No tienes cuenta? <a href="index.html">Regístrate aquí</a></p>
+
+    <!-- Sesion 6: Navbar fixed-top con hamburger animado y dropdown -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="inicio.html">&#128680; Life-SOS</a>
+            <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="consultorios.html"
+                            id="dropdownConsultorios" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Consultorios
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownConsultorios">
+                            <li><a class="dropdown-item" href="consultorios.html#directorio">Directorio</a></li>
+                            <li><a class="dropdown-item" href="consultorios.html#citas">Gesti&#243;n de Citas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="salud.html">Mi Salud</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3 ms-2 active" href="login.html">Acceder</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sesion 2: Container + spacing py-5 -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Sesion 4: Breakpoints para centrar formulario en pantallas medianas+ -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="form-section">
+                        <!-- Sesion 2: Tipograf&#237;a Bootstrap text-center -->
+                        <h1 class="text-center mb-4">Iniciar Sesi&#243;n</h1>
+                        <form action="#" method="post">
+                            <!-- Sesion 1: Clases Bootstrap para form-control -->
+                            <div class="mb-3">
+                                <label for="correo" class="form-label fw-bold">Correo electr&#243;nico:</label>
+                                <input type="email" class="form-control" id="correo" name="correo"
+                                    placeholder="ejemplo@correo.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-bold">Contrase&#241;a:</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Tu contrase&#241;a" required>
+                            </div>
+                            <!-- Sesion 4: d-grid para m&#243;vil -->
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="submit" class="btn btn-danger btn-lg">Entrar</button>
+                                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                            </div>
+                        </form>
+                        <p class="text-center mt-3">&#191;No tienes cuenta? <a href="index.html">Reg&#237;strate aqu&#237;</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sesion 1: Footer Bootstrap -->
+    <footer class="bg-dark text-white text-center py-4 mt-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Life-SOS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Sesion 1: Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

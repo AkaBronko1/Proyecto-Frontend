@@ -3,47 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salud | Life-SOS</title>
+    <title>Mi Salud | Life-SOS</title>
+    <!-- Sesion 1: Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos propios -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Life-SOS</h1>
-        <nav>
-            <ul style="list-style: none; padding: 0;">
-                <li style="display: inline;"><a href="inicio.html">Inicio</a></li>
-                <li style="display: inline;"> | <a href="consultorios.html">Consultorios</a></li>
-                <li style="display: inline;"> | <a href="salud.html">Salud</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Resumen de tu Salud</h2>
-            <p>Aquí podrás ver un resumen de tus datos médicos y recibir recomendaciones personalizadas para mejorar tu bienestar.</p>
-            <ul>
-                <li><strong>Tipo de sangre:</strong> (dato del usuario)</li>
-                <li><strong>Alergias:</strong> (dato del usuario)</li>
-                <li><strong>Seguro médico:</strong> (dato del usuario)</li>
-                <li><strong>Última revisión médica:</strong> (dato del usuario)</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Recomendaciones de Salud</h2>
-            <ul>
-                <li>Recuerda mantener tus datos médicos actualizados.</li>
-                <li>Realiza chequeos médicos periódicos.</li>
-                <li>Consulta a un especialista si presentas síntomas inusuales.</li>
-                <li>Mantén una dieta equilibrada y realiza actividad física regularmente.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Alertas y Consejos</h2>
-            <p>Aquí aparecerán alertas importantes según tus datos médicos, como advertencias sobre alergias, medicamentos o condiciones crónicas.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Life-SOS. Todos los derechos reservados.</p>
+
+    <!-- Sesion 6: Navbar fixed-top con hamburger animado y dropdown -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="inicio.html">&#128680; Life-SOS</a>
+            <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="consultorios.html"
+                            id="dropdownConsultorios" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Consultorios
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownConsultorios">
+                            <li><a class="dropdown-item" href="consultorios.html#directorio">Directorio</a></li>
+                            <li><a class="dropdown-item" href="consultorios.html#citas">Gesti&#243;n de Citas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="salud.html">Mi Salud</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3 ms-2" href="login.html">Acceder</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sesion 5: Hero section bg-dark text-white -->
+    <section class="bg-dark text-white py-5 text-center">
+        <div class="container-fluid py-2">
+            <h1 class="display-4 fw-bold">Mi Salud</h1>
+            <p class="lead">Resumen de tus datos m&#233;dicos y recomendaciones personalizadas.</p>
+        </div>
+    </section>
+
+    <!-- Sesion 3: Grid system + Cards para resumen de salud -->
+    <section class="py-5" id="resumen">
+        <div class="container">
+            <h2 class="mb-4">Resumen de tu Salud</h2>
+            <p class="text-muted mb-4">Aqu&#237; podr&#225;s ver un resumen de tus datos m&#233;dicos y recibir recomendaciones personalizadas.</p>
+            <!-- Sesion 4: Breakpoints col-12 col-md-6 col-lg-3 -->
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body py-4">
+                            <!-- Sesion 5: Badge de color por criticidad -->
+                            <span class="badge bg-danger mb-2 fs-6">Cr&#237;tico</span>
+                            <h6 class="card-title mt-2">Tipo de sangre</h6>
+                            <p class="card-text text-muted">(dato del usuario)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body py-4">
+                            <span class="badge bg-warning text-dark mb-2 fs-6">Importante</span>
+                            <h6 class="card-title mt-2">Alergias</h6>
+                            <p class="card-text text-muted">(dato del usuario)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body py-4">
+                            <span class="badge bg-primary mb-2 fs-6">Cobertura</span>
+                            <h6 class="card-title mt-2">Seguro m&#233;dico</h6>
+                            <p class="card-text text-muted">(dato del usuario)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body py-4">
+                            <span class="badge bg-success mb-2 fs-6">Revisi&#243;n</span>
+                            <h6 class="card-title mt-2">&#218;ltima revisi&#243;n m&#233;dica</h6>
+                            <p class="card-text text-muted">(dato del usuario)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sesion 3: Grid para recomendaciones con cards -->
+    <section class="py-5 bg-light" id="recomendaciones">
+        <div class="container">
+            <h2 class="mb-4">Recomendaciones de Salud</h2>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="badge bg-info text-dark mb-2">Rutina</span>
+                            <p class="card-text">Recuerda mantener tus datos m&#233;dicos actualizados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Prevenci&#243;n</span>
+                            <p class="card-text">Realiza chequeos m&#233;dicos peri&#243;dicos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Atenci&#243;n</span>
+                            <p class="card-text">Consulta a un especialista si presentas s&#237;ntomas inusuales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Bienestar</span>
+                            <p class="card-text">Mant&#233;n una dieta equilibrada y realiza actividad f&#237;sica regularmente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sesion 3: Secci&#243;n alertas con grid col-12 col-md-8 / col-md-4 -->
+    <section class="py-5" id="alertas">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-8">
+                    <h2 class="mb-3">Alertas y Consejos</h2>
+                    <p>Aqu&#237; aparecer&#225;n alertas importantes seg&#250;n tus datos m&#233;dicos, como advertencias sobre alergias, medicamentos o condiciones cr&#243;nicas.</p>
+                </div>
+                <!-- Sesion 5: Badge de estado de alertas -->
+                <div class="col-12 col-md-4 text-center mt-3 mt-md-0">
+                    <span class="badge bg-secondary fs-6 p-3">&#128276; Sin alertas activas</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sesion 1: Footer Bootstrap -->
+    <footer class="bg-dark text-white text-center py-4 mt-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Life-SOS. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- Sesion 1: Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,82 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro | Life-SOS</title>
+    <!-- Sesion 1: Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos propios -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1 id="registro">Crear cuenta de usuario</h1>
-    <p>
-        Regístrate para generar tu tarjeta digital de emergencia para casos de accidentes.
-    </p>
-
-    <form action="#" method="post">
-
-        <h3>Datos de la Cuenta</h3>
-
-        <label for="nombre_usuario">Nombre completo:</label>
-        <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Ingrese su nombre" required>
-
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
-
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" minlength="6" required>
-
-        <hr>
-
-        <h3>Datos Críticos de Emergencia</h3>
-
-        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-
-        <label for="tipo_sangre">Tipo de Sangre:</label>
-        <select id="tipo_sangre" name="tipo_sangre" required>
-            <option value="">Selecciona una opción</option>
-            <option value="O+">O Positivo</option>
-            <option value="O-">O Negativo</option>
-            <option value="A+">A Positivo</option>
-            <option value="A-">A Negativo</option>
-            <option value="B+">B Positivo</option>
-            <option value="B-">B Negativo</option>
-            <option value="AB+">AB Positivo</option>
-            <option value="AB-">AB Negativo</option>
-        </select>
-
-        <label for="alergias">¿Tienes alergias a medicamentos?</label>
-        <select id="alergias" name="alergias" required>
-            <option value="">Selecciona...</option>
-            <option value="No">No</option>
-            <option value="Si">Sí</option>
-        </select>
-
-        <label for="seguro_medico">¿Cuentas con Seguro Médico?</label>
-        <select id="seguro_medico" name="seguro_medico" required>
-            <option value="ninguno">Ninguno</option>
-            <option value="imss">IMSS / ISSSTE</option>
-            <option value="privado">Seguro Privado</option>
-        </select>
-
-        <hr>
-
-        <h3>Contacto de Emergencia</h3>
-
-        <label for="nombre_contacto">Nombre del familiar:</label>
-        <input type="text" id="nombre_contacto" name="nombre_contacto" placeholder="Nombre del familiar" required>
-
-        <label for="telefono_contacto">Teléfono de emergencia:</label>
-        <input type="tel" id="telefono_contacto" name="telefono_contacto" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-
-        <label for="terminos">
-            <input type="checkbox" id="terminos" name="terminos" required>
-            Acepto que mis datos médicos sean usados en caso de accidente
-        </label>
-
-        <div>
-            <button type="submit">Registrarme</button>
-            <button type="reset">Limpiar formulario</button>
+    <!-- Sesion 6: Navbar fixed-top con hamburger animado y dropdown -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="inicio.html">&#128680; Life-SOS</a>
+            <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="inicio.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="consultorios.html"
+                            id="dropdownConsultorios" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Consultorios
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownConsultorios">
+                            <li><a class="dropdown-item" href="consultorios.html#directorio">Directorio</a></li>
+                            <li><a class="dropdown-item" href="consultorios.html#citas">Gesti&#243;n de Citas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="salud.html">Mi Salud</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3 ms-2" href="login.html">Acceder</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </form>
+    </nav>
 
+    <!-- Sesion 2: Container + spacing py-5 para el formulario -->
+    <section class="py-5" id="registro">
+        <div class="container">
+            <!-- Sesion 4: Breakpoints col-12 col-md-10 col-lg-8 para centrar el formulario -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <div class="form-section">
+                        <!-- Sesion 2: Tipograf&#237;a Bootstrap text-center, text-muted -->
+                        <h1 class="text-center mb-2">Crear cuenta de usuario</h1>
+                        <p class="text-center text-muted mb-4">Reg&#237;strate para generar tu tarjeta digital de emergencia para casos de accidentes.</p>
+
+                        <form action="#" method="post">
+
+                            <!-- Sesion 5: Badges numerados como indicadores de sección -->
+                            <h3 class="mb-3 mt-2">
+                                <span class="badge bg-primary me-2">1</span> Datos de la Cuenta
+                            </h3>
+                            <!-- Sesion 3: Grid system row g-3 para los campos -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-12">
+                                    <label for="nombre_usuario" class="form-label fw-bold">Nombre completo:</label>
+                                    <input type="text" class="form-control" id="nombre_usuario"
+                                        name="nombre_usuario" placeholder="Ingrese su nombre" required>
+                                </div>
+                                <!-- Sesion 4: Breakpoints col-12 col-md-6 en los campos del formulario -->
+                                <div class="col-12 col-md-6">
+                                    <label for="correo" class="form-label fw-bold">Correo electr&#243;nico:</label>
+                                    <input type="email" class="form-control" id="correo"
+                                        name="correo" placeholder="ejemplo@correo.com" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="password" class="form-label fw-bold">Contrase&#241;a:</label>
+                                    <input type="password" class="form-control" id="password"
+                                        name="password" placeholder="M&#237;nimo 6 caracteres" minlength="6" required>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h3 class="mb-3">
+                                <span class="badge bg-danger me-2">2</span> Datos Cr&#237;ticos de Emergencia
+                            </h3>
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-4">
+                                    <label for="fecha_nacimiento" class="form-label fw-bold">Fecha de nacimiento:</label>
+                                    <input type="date" class="form-control" id="fecha_nacimiento"
+                                        name="fecha_nacimiento" required>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label for="tipo_sangre" class="form-label fw-bold">Tipo de Sangre:</label>
+                                    <select class="form-select" id="tipo_sangre" name="tipo_sangre" required>
+                                        <option value="">Selecciona una opci&#243;n</option>
+                                        <option value="O+">O Positivo</option>
+                                        <option value="O-">O Negativo</option>
+                                        <option value="A+">A Positivo</option>
+                                        <option value="A-">A Negativo</option>
+                                        <option value="B+">B Positivo</option>
+                                        <option value="B-">B Negativo</option>
+                                        <option value="AB+">AB Positivo</option>
+                                        <option value="AB-">AB Negativo</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <label for="alergias" class="form-label fw-bold">&#191;Tienes alergias a medicamentos?</label>
+                                    <select class="form-select" id="alergias" name="alergias" required>
+                                        <option value="">Selecciona...</option>
+                                        <option value="No">No</option>
+                                        <option value="Si">S&#237;</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="seguro_medico" class="form-label fw-bold">&#191;Cuentas con Seguro M&#233;dico?</label>
+                                    <select class="form-select" id="seguro_medico" name="seguro_medico" required>
+                                        <option value="ninguno">Ninguno</option>
+                                        <option value="imss">IMSS / ISSSTE</option>
+                                        <option value="privado">Seguro Privado</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <h3 class="mb-3">
+                                <span class="badge bg-warning text-dark me-2">3</span> Contacto de Emergencia
+                            </h3>
+                            <div class="row g-3 mb-4">
+                                <div class="col-12 col-md-6">
+                                    <label for="nombre_contacto" class="form-label fw-bold">Nombre del familiar:</label>
+                                    <input type="text" class="form-control" id="nombre_contacto"
+                                        name="nombre_contacto" placeholder="Nombre del familiar" required>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="telefono_contacto" class="form-label fw-bold">Tel&#233;fono de emergencia:</label>
+                                    <input type="tel" class="form-control" id="telefono_contacto"
+                                        name="telefono_contacto" placeholder="123-456-7890"
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                                </div>
+                            </div>
+
+                            <!-- Sesion 1: Clases Bootstrap para el checkbox -->
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="terminos" name="terminos" required>
+                                <label class="form-check-label" for="terminos">
+                                    Acepto que mis datos m&#233;dicos sean usados en caso de accidente
+                                </label>
+                            </div>
+
+                            <!-- Sesion 4: d-grid en m&#243;vil, d-md-flex en tablet+ -->
+                            <div class="d-grid gap-2 d-md-flex">
+                                <button type="submit" class="btn btn-danger btn-lg flex-grow-1">Registrarme</button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg">Limpiar formulario</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sesion 1: Footer Bootstrap -->
+    <footer class="bg-dark text-white text-center py-4 mt-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Life-SOS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Sesion 1: Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

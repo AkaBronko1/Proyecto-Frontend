@@ -3,88 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla de Inicio | Life-SOS</title>
+    <title>Inicio | Life-SOS</title>
+    <!-- Sesion 1: Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos propios -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Life-SOS</h1>
-        <nav>
-            <ul style="list-style: none; padding: 0;">
-                <li style="display: inline;"><a href="inicio.html">Inicio</a></li>
-                <li style="display: inline;"> | <a href="consultorios.html">Consultorios</a></li>
-                <li style="display: inline;"> | <a href="#salud">Salud</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section style="text-align:center; margin-top:30px;">
-            <h1>Bienvenido a Life-SOS</h1>
-            <p><strong>Tu salud y seguridad, siempre a la mano.</strong></p>
-            <p>Life-SOS es tu plataforma para gestionar tu información médica, recibir recomendaciones personalizadas y acceder rápidamente a ayuda en caso de emergencia.</p>
-        </section>
+    <!-- Sesion 6: Navbar fixed-top profesional con hamburger animado y dropdown -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="inicio.html">&#128680; Life-SOS</a>
+            <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menu" aria-controls="menu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+                <span class="ham-line"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="inicio.html">Inicio</a></li>
+                    <!-- Sesion 6: Dropdown Consultorios -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="consultorios.html"
+                            id="dropdownConsultorios" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Consultorios
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownConsultorios">
+                            <li><a class="dropdown-item" href="consultorios.html#directorio">Directorio</a></li>
+                            <li><a class="dropdown-item" href="consultorios.html#citas">Gesti&#243;n de Citas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="salud.html">Mi Salud</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3 ms-2" href="login.html">Acceder</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <section style="margin: 40px 0;">
-            <h2>Acceso rápido</h2>
-            <ul style="list-style: none; padding-left: 0; text-align:center;">
-                <li style="display: inline-block; margin: 0 20px;">
-                    <a href="consultorios.html"><strong>Consultorios</strong></a><br>
-                    <span style="font-size: small;">Directorio y citas</span>
-                </li>
-                <li style="display: inline-block; margin: 0 20px;">
-                    <a href="#salud"><strong>Salud</strong></a><br>
-                    <span style="font-size: small;">Recomendaciones y alertas</span>
-                </li>
-                <li style="display: inline-block; margin: 0 20px;">
-                    <a href="#emergencia"><strong>Emergencia</strong></a><br>
-                    <span style="font-size: small;">Hospitales y ayuda</span>
-                </li>
-            </ul>
-        </section>
+    <!-- Sesion 4: Alerta solo visible en desktop (d-none d-lg-block) -->
+    <div class="alert alert-info d-none d-lg-block text-center mb-0 rounded-0">
+        &#127973; Bienvenido a Life-SOS &mdash; Gestiona tu informaci&#243;n m&#233;dica de emergencia de forma r&#225;pida y segura.
+    </div>
 
-        <section id="consultorios">
-            <h2>Consultorios</h2>
-            <p>Encuentra consultorios médicos y especialistas cerca de ti. Próximamente podrás agendar citas y recibir recordatorios de tus consultas.</p>
-            <ul>
-                <li>Directorio de consultorios y hospitales.</li>
-                <li>Información de contacto y ubicación en mapa.</li>
-                <li>Opciones para agendar y gestionar tus citas (próximamente).</li>
-            </ul>
-        </section>
+    <!-- Sesion 5: Hero section bg-dark text-white -->
+    <section class="hero-section text-white py-5 text-center">
+        <div class="container-fluid py-3">
+            <!-- Sesion 2: Tipograf&#237;a Bootstrap display-4, lead -->
+            <h1 class="display-4 fw-bold">Bienvenido a Life-SOS</h1>
+            <p class="lead mb-4"><strong>Tu salud y seguridad, siempre a la mano.</strong></p>
+            <p class="mb-4">Life-SOS es tu plataforma para gestionar tu informaci&#243;n m&#233;dica, recibir recomendaciones personalizadas y acceder r&#225;pidamente a ayuda en caso de emergencia.</p>
+            <a href="index.html" class="btn btn-danger btn-lg me-2">Registrarme</a>
+            <a href="login.html" class="btn btn-outline-light btn-lg">Iniciar sesi&#243;n</a>
+        </div>
+    </section>
 
-        <section id="salud">
-            <h2>Salud</h2>
-            <p>Recibe consejos y alertas personalizadas para mejorar tu bienestar. El sistema analizará tus datos para sugerir hábitos saludables y advertencias importantes.</p>
-            <ul>
-                <li>Alertas sobre alergias y medicamentos.</li>
-                <li>Consejos de nutrición y actividad física.</li>
-                <li>Seguimiento de tus indicadores de salud.</li>
-            </ul>
-        </section>
+    <!-- Sesion 3: Grid system + Cards para Acceso rápido -->
+    <section class="py-5 bg-light" id="acceso-rapido">
+        <div class="container">
+            <!-- Sesion 2: Spacing mb-4, text-center -->
+            <h2 class="mb-4 text-center">Acceso r&#225;pido</h2>
+            <!-- Sesion 4: Breakpoints multiples col-12 col-md-6 col-lg-4 -->
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body py-4">
+                            <!-- Sesion 5: Badge de color -->
+                            <span class="badge bg-primary mb-3 fs-6">Directorio</span>
+                            <h5 class="card-title">Consultorios</h5>
+                            <p class="card-text">Encuentra consultorios m&#233;dicos y especialistas cerca de ti. Agenda citas y recibe recordatorios.</p>
+                            <a href="consultorios.html" class="btn btn-outline-primary">Ver consultorios</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body py-4">
+                            <span class="badge bg-success mb-3 fs-6">Bienestar</span>
+                            <h5 class="card-title">Mi Salud</h5>
+                            <p class="card-text">Recibe alertas y consejos personalizados. Mantén un registro de tus indicadores de salud.</p>
+                            <a href="salud.html" class="btn btn-outline-success">Ver mi salud</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body py-4">
+                            <span class="badge bg-danger mb-3 fs-6">Urgente</span>
+                            <h5 class="card-title">Emergencia</h5>
+                            <p class="card-text">En caso de accidente, tu informaci&#243;n m&#233;dica estar&#225; disponible. Alerta a tus contactos de confianza.</p>
+                            <a href="#emergencia" class="btn btn-outline-danger">M&#225;s info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="emergencia">
-            <h2>Emergencia</h2>
-            <p>En caso de accidente, tu información médica estará disponible para servicios de emergencia. Además, podrás alertar a tus contactos de confianza.</p>
-            <ul>
-                <li>Hospitales y servicios de emergencia cercanos (próximamente).</li>
-                <li>Tus datos médicos críticos para atención inmediata.</li>
-                <li>Botón de alerta para notificar a tus contactos de emergencia.</li>
-            </ul>
-        </section>
+    <!-- Sesion 3: Grid system para secciones informativas -->
+    <section class="py-5" id="consultorios-info">
+        <div class="container">
+            <div class="row g-4 align-items-start">
+                <!-- Sesion 4: col-12 col-md-6 para responsivo en tablet -->
+                <div class="col-12 col-md-6">
+                    <h2 class="mb-3">Consultorios</h2>
+                    <p>Encuentra consultorios m&#233;dicos y especialistas cerca de ti. Pr&#243;ximamente podr&#225;s agendar citas y recibir recordatorios.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Directorio de consultorios y hospitales.</li>
+                        <li class="list-group-item">Informaci&#243;n de contacto y ubicaci&#243;n en mapa.</li>
+                        <li class="list-group-item">Opciones para agendar y gestionar tus citas (pr&#243;ximamente).</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6" id="salud-info">
+                    <h2 class="mb-3">Salud</h2>
+                    <p>Recibe consejos y alertas personalizadas para mejorar tu bienestar. El sistema analizar&#225; tus datos para sugerir h&#225;bitos saludables.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Alertas sobre alergias y medicamentos.</li>
+                        <li class="list-group-item">Consejos de nutrici&#243;n y actividad f&#237;sica.</li>
+                        <li class="list-group-item">Seguimiento de tus indicadores de salud.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section style="margin: 40px 0;">
-            <h2>Noticias y Tips de Salud</h2>
-            <ul>
-                <li>¿Sabías que mantener tus datos médicos actualizados puede salvarte la vida en una emergencia?</li>
-                <li>Visita a tu médico regularmente y mantén un registro de tus alergias y medicamentos.</li>
-                <li>En caso de accidente, tu información estará disponible para los servicios de emergencia.</li>
-            </ul>
-        </section>
-    </main>
+    <!-- Sesion 3: Grid emergencia con llamada a la acción -->
+    <section class="py-5 bg-light" id="emergencia">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-8">
+                    <h2 class="mb-3">Emergencia</h2>
+                    <p>En caso de accidente, tu informaci&#243;n m&#233;dica estar&#225; disponible para servicios de emergencia. Adem&#225;s, podr&#225;s alertar a tus contactos de confianza.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Hospitales y servicios de emergencia cercanos (pr&#243;ximamente).</li>
+                        <li class="list-group-item">Tus datos m&#233;dicos cr&#237;ticos para atenci&#243;n inmediata.</li>
+                        <li class="list-group-item">Bot&#243;n de alerta para notificar a tus contactos de emergencia.</li>
+                    </ul>
+                </div>
+                <!-- Sesion 4: Columna alineada en pantallas medianas+ -->
+                <div class="col-12 col-md-4 text-center mt-3 mt-md-0">
+                    <a href="index.html" class="btn btn-danger btn-lg w-100">&#128682; Registrarme ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Life-SOS. Todos los derechos reservados.</p>
+    <!-- Sesion 5: Noticias con cards y badges de colores -->
+    <section class="py-5" id="noticias">
+        <div class="container">
+            <h2 class="mb-4 text-center">Noticias y Tips de Salud</h2>
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-2">Consejo</span>
+                            <p class="card-text">&#191;Sab&#237;as que mantener tus datos m&#233;dicos actualizados puede salvarte la vida en una emergencia?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Salud</span>
+                            <p class="card-text">Visita a tu m&#233;dico regularmente y mant&#233;n un registro de tus alergias y medicamentos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Urgencia</span>
+                            <p class="card-text">En caso de accidente, tu informaci&#243;n estar&#225; disponible para los servicios de emergencia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sesion 1: Footer con clases Bootstrap -->
+    <footer class="bg-dark text-white text-center py-4 mt-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Life-SOS. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- Sesion 1: Bootstrap JS Bundle (necesario para navbar/dropdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
